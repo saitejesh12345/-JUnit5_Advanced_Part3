@@ -11,3 +11,43 @@ when u using this mode only one instanes will be created per Testclass it is ver
 
 **we will learn how to make good test methodRuns in a SingleInstance of a testClass.**
 
+# Code Explanation Follow Here:-
+
+This code consists of **two Java classes:**
+
+**UsersDatabase and UsersDatabaseMapImpl.** The UsersDatabase is an **interface** that defines the methods for a simple user database, while **UsersDatabaseMapImpl** is a class that implements the **UsersDatabase interface using a HashMap.**
+
+Let's go through each class and their methods:
+
+# UsersDatabase interface:
+
+**1.** void init(): Initializes the user database.
+
+**2.** void close(): Closes the user database.
+
+**3.** Map save(String userId, Map userDetails): Saves a user with the given userId and userDetails.
+
+**4.** Map update(String userId, Map user): Updates the user with the given userId and new user details.
+
+**5.** Map find(String userId): Finds and returns the user with the given userId.
+
+**6.** void delete(String userId): Deletes the user with the given userId.
+
+# UsersDatabaseMapImpl class:
+
+**Map<String, Map> users:**  A HashMap that stores user data, where the key is the user ID (a String) and the value is a Map containing user details.
+
+**1.** public void init(): Initializes the users HashMap.
+
+**2.** public void close(): Sets the users HashMap to null, effectively closing the user database.
+
+**3.** public Map save(String userId, Map userDetails): Saves a user by putting the userId and userDetails into the users HashMap. Returns the previous value associated with the userId, or null if there was no previous value.
+
+**4.** public Map update(String userId, Map user): Updates a user by putting the new user details into the users HashMap with the given userId. Returns the updated user details.
+
+**5.** public Map find(String userId): Finds and returns the user details associated with the given userId from the users HashMap. Returns null if the user is not found.
+
+**6.** public void delete(String userId): Deletes the user with the given userId by removing the entry from the users HashMap.
+
+In summary, this code demonstrates a simple user database implementation using a HashMap. The UsersDatabase interface defines the methods for interacting with the user database, and the UsersDatabaseMapImpl class provides an implementation of this interface using a HashMap.
+
