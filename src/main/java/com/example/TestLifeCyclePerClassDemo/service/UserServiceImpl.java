@@ -1,6 +1,7 @@
-package com.appsdeveloperblog.service;
+package com.example.TestLifeCyclePerClassDemo.service;
 
-import com.appsdeveloperblog.io.UsersDatabase;
+import com.example.TestLifeCyclePerClassDemo.io.UsersDatabase;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Map;
 import java.util.UUID;
@@ -11,8 +12,9 @@ public class UserServiceImpl implements UserService {
     UsersDatabase usersDatabase;
     @Autowired
     public UserServiceImpl(UsersDatabase usersDatabase) {
-        this.usersDatabase = usersDatabase;
+        this.usersDatabase=usersDatabase;
     }
+
 
     @Override
     public String createUser(Map userDetails) {
