@@ -11,7 +11,7 @@ when u using this mode only one instanes will be created per Testclass it is ver
 
 **we will learn how to make good test methodRuns in a SingleInstance of a testClass.**
 
-# Code Explanation Follow Here:-
+# Code Explanation Follow Here[io package]:-
 
 This code consists of **two Java classes:**
 
@@ -51,3 +51,38 @@ Let's go through each class and their methods:
 
 In summary, this code demonstrates a simple user database implementation using a HashMap. The UsersDatabase interface defines the methods for interacting with the user database, and the UsersDatabaseMapImpl class provides an implementation of this interface using a HashMap.
 
+# Code Explanation Follow Here[Service package]:-
+
+This code consists of **two Java classes:**
+
+**UserService and UserServiceImpl.**
+
+The **UserService is an interface** that defines the **methods for a user service, while UserServiceImpl is a class that implements the UserService interface using the UsersDatabase interface from your previous code.**
+
+Let's go through each class and their methods:
+
+# UserService interface:
+
+**1.** String createUser(Map userDetails): Creates a new user with the given userDetails and returns the generated user ID.
+
+**2.** Map updateUser(String userId, Map userDetails): Updates the user with the given userId and new userDetails. Returns the updated user details.
+
+**3.** Map getUserDetails(String userId): Retrieves and returns the user details for the user with the given userId.
+
+**4.** void deleteUser(String userId): Deletes the user with the given userId.
+
+# UserServiceImpl class:
+
+UsersDatabase usersDatabase: A reference to the UsersDatabase interface, which is used to interact with the user database.
+public UserServiceImpl(UsersDatabase usersDatabase): Constructor that takes a UsersDatabase instance as a parameter and initializes the usersDatabase field.
+
+**1.** public String createUser(Map userDetails): Generates a random user ID using UUID.randomUUID().toString(), adds the user ID to the userDetails map, saves the user using the usersDatabase.save() method, and returns the generated user ID.
+
+**2.** public Map updateUser(String userId, Map userDetails): Finds the existing user with the given userId using the usersDatabase.find() method. If the user is  not found, it throws an IllegalArgumentException. Updates the user's first and last name with the new values from the userDetails map, and then
+ updates the user in the database using the usersDatabase.update() method. Returns the updated user details.
+
+**3.**  public Map getUserDetails(String userId): Retrieves and returns the user details for the user with the given userId using the usersDatabase.find() method.
+
+**4.**  public void deleteUser(String userId): Finds the existing user with the given userId using the usersDatabase.find() method. If the user is not found, it throws an IllegalArgumentException. Deletes the user from the database using the usersDatabase.delete() method.
+
+In summary, this code demonstrates a user service implementation that interacts with a user database through the UsersDatabase interface. The UserService interface defines the methods for managing users, and the UserServiceImpl class provides an implementation of this interface using the UsersDatabase interface.
